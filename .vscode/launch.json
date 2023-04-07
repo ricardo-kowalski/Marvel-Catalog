@@ -5,10 +5,24 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "marvel_catalog",
+            "name": "prod: marvel_catalog",
             "request": "launch",
             "type": "dart",
-           
+            "args": [
+                "--dart-define=DEFINE_APP_NAME= Marvel Catalog",
+                "--dart-define=DEFINE_ENVIRONMENT=prod",
+                "prod"
+            ]
+        },
+        {
+            "name": "dev: marvel_catalog",
+            "request": "launch",
+            "type": "dart",
+            "args": [
+                "--dart-define=DEFINE_APP_NAME=[DEV] Marvel Catalog",
+                "--dart-define=DEFINE_ENVIRONMENT=dev",
+                "dev"
+            ]
         },
     ]
 }
