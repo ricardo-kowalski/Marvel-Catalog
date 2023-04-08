@@ -9,9 +9,9 @@
             "request": "launch",
             "type": "dart",
             "args": [
-                "--dart-define=DEFINE_APP_NAME= Marvel Catalog",
+                "--dart-define=DEFINE_APP_NAME= Marvel List",
                 "--dart-define=DEFINE_ENVIRONMENT=prod",
-                "prod"
+                // "--dart-define=DEFINE_API_URI=https://gateway.marvel.com:443/v1/public",
             ]
         },
         {
@@ -19,9 +19,9 @@
             "request": "launch",
             "type": "dart",
             "args": [
-                "--dart-define=DEFINE_APP_NAME=[DEV] Marvel Catalog",
+                "--dart-define=DEFINE_APP_NAME=[DEV] Marvel List",
                 "--dart-define=DEFINE_ENVIRONMENT=dev",
-                "dev"
+                // "--dart-define=DEFINE_API_URI=https://gateway.marvel.com:443/v1/public",
             ]
         },
     ]
