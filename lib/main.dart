@@ -1,28 +1,40 @@
 import 'package:flutter/material.dart';
-import 'api_key.dart';
-import 'environment.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:marvel_catalog/features/characters/presentation/characters/inifinite_scroll_cubit/infinite_scroll_cubit.dart';
+import 'config/environment.dart';
+import 'features/characters/presentation/characters/characters_cubit/characters_cubit.dart';
+import 'features/characters/presentation/characters/pages/characters_screen2.dart';
+import 'injection.dart' as di;
 
-void main() {
+void main() async {
+  await di.init();
   runApp(const MyApp());
 }
 
 final environment = getEnvironment();
-final apiKey = ApiKey();
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider<CharactersCubit>(
+          create: (context) => di.sl.get<CharactersCubit>(),
+        ),
+        BlocProvider<InfiniteScrollCubit>(
+          create: (context) => di.sl.get<InfiniteScrollCubit>(),
+        ),
+      ],
+      child: MaterialApp(
+        title: 'Flutter Demo',
+        theme: ThemeData(
+          primarySwatch: Colors.blue,
+        ),
+        home: HomePage(title: environment.name),
+        debugShowCheckedModeBanner: environment.isProd,
       ),
-      home: HomePage(title: environment.name),
-      debugShowCheckedModeBanner: (environment.type !=
-          EnvironmentType
-              .prod), // adiciona flag apenas para ambientes diferentes de produção
     );
   }
 }
@@ -37,12 +49,14 @@ class HomePage extends StatelessWidget {
       appBar: AppBar(
         title: Text(title),
       ),
-      body: Column(
-        children: [
-          const Text('PUBLIC KEY: ${ApiKey.publicKey}'),
-          Text('MD5 HASH: ${ApiKey.hash}'),
-        ],
-      ),
+      // body: Column(
+      //   children: [
+      //     const Text('PUBLIC KEY: ${MarvelApi.publicKey}'),
+      //     Text('MD5 HASH: ${MarvelApi.hash}'),
+      //   ],
+      // ),
+      // body: CharactersList(),
+      body: CharactersList2(),
     );
   }
 }
