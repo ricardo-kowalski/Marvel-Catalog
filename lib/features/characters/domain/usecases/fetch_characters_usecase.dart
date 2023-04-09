@@ -1,3 +1,5 @@
+import 'package:result_dart/result_dart.dart';
+
 import '../entities/character_data_wrapper.dart';
 import '../repositories/characters_repository.dart';
 
@@ -6,7 +8,7 @@ class FetchCharactersUsecase {
 
   FetchCharactersUsecase(this.repository);
 
-  Future<CharacterDataWrapper> get({
+  Future<Result<CharacterDataWrapper, Exception>> get({
     int? limit,
     int? offset,
   }) async {

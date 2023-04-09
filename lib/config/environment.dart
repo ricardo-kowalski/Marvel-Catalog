@@ -13,7 +13,7 @@ class Environment {
     required this.name,
   });
 
-  bool get isProd => (type != EnvironmentType.prod);
+  bool get isProd => (type == EnvironmentType.prod);
 }
 
 extension EnvironmentTypeExtension on EnvironmentType {

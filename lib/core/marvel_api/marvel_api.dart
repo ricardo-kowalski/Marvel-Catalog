@@ -2,8 +2,6 @@ import 'package:envied/envied.dart';
 import 'package:marvel_catalog/core/utils/hash_generator.dart';
 part 'marvel_api.g.dart';
 
-// final domain = 'https://gateway.marvel.com:443';
-
 @Envied(path: '.env')
 class MarvelApi {
   MarvelApi._();
@@ -36,8 +34,7 @@ class MarvelApi {
   }) {
     final Map<String, dynamic> params = {
       'apikey': publicKey,
-      // 'ts': '${MarvelApi.timestamp}',
-      'ts': '1',
+      'ts': '1', //timestamp
       'hash': hash,
     };
 
@@ -47,7 +44,4 @@ class MarvelApi {
 
     return Uri.https(uri, 'v1/public/characters', params);
   }
-  // Uri.parse(
-  //   '$uri/characters?apikey=$publicKey&ts=1&hash=$hash',
-  // );
 }
