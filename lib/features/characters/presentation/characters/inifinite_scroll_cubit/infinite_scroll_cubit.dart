@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:marvel_catalog/features/characters/domain/entities/character.dart';
 import 'package:marvel_catalog/features/characters/domain/usecases/fetch_characters_usecase.dart';
@@ -37,26 +38,27 @@ class InfiniteScrollCubit extends Cubit<InfiniteScrollState> {
     emit(FetchingCompletedState(recordCount: fetchedRecords.length));
   }
 
-  showError({required String message}) {
+  showError({required Exception error}) {
     isLoading = false;
-    emit(FetchingErrorState(errorMessage: message));
+    emit(FetchingErrorState(error: error));
   }
 
   Future<void> getMoreData() async {
-    try {
-      startFetching();
-      final fetchedNewRecords = await service.get(
-        limit: 20,
-        offset: fetchedRecords.length,
-      );
-      List<Character>? recordData = fetchedNewRecords.data?.results;
-
-      if (recordData != null) {
-        Future.forEach(recordData, (element) => fetchedRecords.add(element));
-      }
-      endFetching();
-    } catch (e) {
-      showError(message: e.toString());
-    }
+    startFetching();
+    final result = await service.get(
+      limit: 20,
+      offset: fetchedRecords.length,
+    );
+    // List<Character>? recordData = fetchedNewRecords.data?.results;
+    result.fold(
+      (success) {
+        List<Character>? recordData = success.data?.results;
+        if (recordData != null) {
+          Future.forEach(recordData, (element) => fetchedRecords.add(element));
+        }
+        endFetching();
+      },
+      (failure) => showError(error: failure),
+    );
   }
 }

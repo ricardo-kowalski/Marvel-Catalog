@@ -1,3 +1,5 @@
+import 'package:flutter/services.dart';
+
 abstract class InfiniteScrollState {
   InfiniteScrollState();
 }
@@ -13,7 +15,7 @@ class FetchingCompletedState extends InfiniteScrollState {
 }
 
 class FetchingErrorState extends InfiniteScrollState {
-  final String errorMessage;
+  final Exception error;
 
-  FetchingErrorState({required this.errorMessage});
+  FetchingErrorState({required this.error});
 }
