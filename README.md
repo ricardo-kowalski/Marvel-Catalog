@@ -18,7 +18,6 @@ Algumas features mapeadas para futuras implementações e acompanhamento do dese
 - [ ] Filtros
 - [ ] Dark/Light Theme
 
-
 ## Como rodar esse projeto?
 
 - Crie no diretório principal um arquivo com o nome `.env`, adicionando as chaves da API exemplificadas no arquivo `.env.example`;
