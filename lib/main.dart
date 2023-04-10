@@ -10,12 +10,9 @@ import 'features/characters/presentation/characters/header_heroes_cubit/header_h
 import 'features/characters/presentation/characters/widgets/characters_list.dart';
 import 'injection.dart' as di;
 
-void main() async {
-  await di.init();
+void main() {
   runApp(const MyApp());
 }
-
-final environment = getEnvironment();
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
