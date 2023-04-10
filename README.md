@@ -9,7 +9,6 @@ Algumas features mapeadas para futuras implementações e acompanhamento do dese
 
 
 - [x] Configurações de projeto e ambiente
-
 - [x] Carrossel superior com 5 personagens
 - [x] Uma lista vertical abaixo do carrossel com os personagens seguintes, sem repetir
 - [x] Scroll infinito
