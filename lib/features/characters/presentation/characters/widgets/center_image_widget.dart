@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:marvel_catalog/core/app_exception.dart';
 
 class CenterImageWidget extends StatelessWidget {
-  final PlatformException error;
+  final AppException error;
   final String pathImage;
   final Widget? action;
 
