@@ -7,10 +7,9 @@ Plataformas: Android e iOS
 
 Algumas features mapeadas para futuras implementações e acompanhamento do desenvolvimento.
 
-- [x] Configurações de projeto e ambiente
-- [x] Carrossel superior com 5 personagens
-- [x] Uma lista vertical abaixo do carrossel com os personagens seguintes, sem repetir
-- [x] Scroll infinito
+- [ ] Carrossel superior com 5 personagens
+- [ ] Uma lista vertical abaixo do carrossel com os personagens seguintes, sem repetir
+- [ ] Scroll infinito
 - [ ] Detalhes dos personagens
 - [ ] Campo de busca
 - [ ] Filtros
