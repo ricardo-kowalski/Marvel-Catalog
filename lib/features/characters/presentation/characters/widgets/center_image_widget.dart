@@ -1,9 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+<<<<<<< HEAD
 import 'package:marvel_catalog/core/app_exception.dart';
 
 class CenterImageWidget extends StatelessWidget {
   final AppException error;
+=======
+
+class CenterImageWidget extends StatelessWidget {
+  final PlatformException error;
+>>>>>>> parent of 036bdbe (Merge pull request #4 from ricardo-kowalski/revert-3-feature/03)
   final String pathImage;
   final Widget? action;
 

@@ -1,10 +1,14 @@
+<<<<<<< HEAD
 import 'package:equatable/equatable.dart';
 
+=======
+>>>>>>> parent of 036bdbe (Merge pull request #4 from ricardo-kowalski/revert-3-feature/03)
 import 'package:marvel_catalog/features/characters/data/models/image_model.dart';
 import 'package:marvel_catalog/features/characters/domain/entities/character.dart';
 
 import 'url_model.dart';
 
+<<<<<<< HEAD
 class CharacterModel extends Equatable {
   final int? id;
   final String? name;
@@ -15,6 +19,18 @@ class CharacterModel extends Equatable {
   final String? resourceUri;
 
   const CharacterModel({
+=======
+class CharacterModel {
+  int? id;
+  String? name;
+  String? description;
+  // DateTime? modified;
+  CharacterImageModel? thumbnail;
+  List<CharacterUrlModel>? urls;
+  String? resourceUri;
+
+  CharacterModel({
+>>>>>>> parent of 036bdbe (Merge pull request #4 from ricardo-kowalski/revert-3-feature/03)
     this.id,
     this.name,
     this.description,
@@ -81,6 +97,7 @@ class CharacterModel extends Equatable {
         'urls': urls,
         'resource_uri': resourceUri,
       };
+<<<<<<< HEAD
 
   @override
   List<Object?> get props {
@@ -93,4 +110,6 @@ class CharacterModel extends Equatable {
       resourceUri,
     ];
   }
+=======
+>>>>>>> parent of 036bdbe (Merge pull request #4 from ricardo-kowalski/revert-3-feature/03)
 }

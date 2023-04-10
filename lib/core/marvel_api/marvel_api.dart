@@ -21,6 +21,7 @@ class MarvelApi {
   @EnviedField(varName: 'PRIVATE_KEY')
   static const _privateKey = _MarvelApi._privateKey;
 
+<<<<<<< HEAD
   static const popularHeroesIds = [
     '1009726', //X - Men
     '1009718', '1017325', '1011006', // Wolverine
@@ -39,6 +40,8 @@ class MarvelApi {
     '1010925', // ghost rider:
   ];
 
+=======
+>>>>>>> parent of 036bdbe (Merge pull request #4 from ricardo-kowalski/revert-3-feature/03)
   static get hash => _hashGenerator.get(
         publicKey: publicKey,
         privateKey: _privateKey,
@@ -49,7 +52,10 @@ class MarvelApi {
   static Uri uriRequest({
     int? limit,
     int? offset,
+<<<<<<< HEAD
     String? characterId,
+=======
+>>>>>>> parent of 036bdbe (Merge pull request #4 from ricardo-kowalski/revert-3-feature/03)
   }) {
     final Map<String, dynamic> params = {
       'apikey': publicKey,
@@ -57,14 +63,21 @@ class MarvelApi {
       'hash': hash,
     };
 
+<<<<<<< HEAD
     String unencodedPath = 'v1/public/characters';
 
     if (characterId != null) unencodedPath += '/$characterId';
 
+=======
+>>>>>>> parent of 036bdbe (Merge pull request #4 from ricardo-kowalski/revert-3-feature/03)
     if (limit != null) params['limit'] = limit.toString();
 
     if (offset != null) params['offset'] = offset.toString();
 
+<<<<<<< HEAD
     return Uri.https(uri, unencodedPath, params);
+=======
+    return Uri.https(uri, 'v1/public/characters', params);
+>>>>>>> parent of 036bdbe (Merge pull request #4 from ricardo-kowalski/revert-3-feature/03)
   }
 }

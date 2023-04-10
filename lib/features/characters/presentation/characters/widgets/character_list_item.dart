@@ -11,6 +11,7 @@ class CharacterListItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListTile(
+<<<<<<< HEAD
       contentPadding: EdgeInsets.zero,
       minVerticalPadding: 0,
       // pad
@@ -21,6 +22,11 @@ class CharacterListItem extends StatelessWidget {
       leading: SizedBox(
         // height: 200.0,
         width: 120.0,
+=======
+      leading: SizedBox(
+        height: 100.0,
+        width: 100.0,
+>>>>>>> parent of 036bdbe (Merge pull request #4 from ricardo-kowalski/revert-3-feature/03)
         child: character.thumbnail?.full != null
             ? Image.network(
                 character.thumbnail!.full,
@@ -51,6 +57,7 @@ class CharacterListItem extends StatelessWidget {
                 height: 300,
               ),
       ),
+<<<<<<< HEAD
       title: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -59,6 +66,9 @@ class CharacterListItem extends StatelessWidget {
           Text(character.id.toString()),
         ],
       ),
+=======
+      title: Text(character.name ?? '--'),
+>>>>>>> parent of 036bdbe (Merge pull request #4 from ricardo-kowalski/revert-3-feature/03)
       subtitle: Text(character.description ?? '', maxLines: 2),
     );
   }
