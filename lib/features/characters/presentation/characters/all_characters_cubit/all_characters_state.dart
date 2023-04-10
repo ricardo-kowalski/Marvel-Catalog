@@ -1,8 +1,5 @@
-import 'package:flutter/services.dart';
-import 'package:marvel_catalog/core/app_exception.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-
+import 'package:marvel_catalog/core/app_exception.dart';
 import '../../../domain/entities/character.dart';
 
 part 'all_characters_state.freezed.dart';

@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import 'package:equatable/equatable.dart';
 
 import 'package:marvel_catalog/features/characters/domain/entities/character_image.dart';
@@ -8,15 +7,6 @@ class CharacterImageModel extends Equatable {
   final String? extension;
 
   const CharacterImageModel({
-=======
-import 'package:marvel_catalog/features/characters/domain/entities/character_image.dart';
-
-class CharacterImageModel {
-  final String? path;
-  final String? extension;
-
-  CharacterImageModel({
->>>>>>> parent of 036bdbe (Merge pull request #4 from ricardo-kowalski/revert-3-feature/03)
     this.path,
     this.extension,
   });
@@ -38,10 +28,7 @@ class CharacterImageModel {
         path: path,
         extension: extension,
       );
-<<<<<<< HEAD
 
   @override
   List<Object?> get props => [path, extension];
-=======
->>>>>>> parent of 036bdbe (Merge pull request #4 from ricardo-kowalski/revert-3-feature/03)
 }

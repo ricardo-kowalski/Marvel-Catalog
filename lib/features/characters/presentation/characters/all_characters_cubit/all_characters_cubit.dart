@@ -1,13 +1,9 @@
-import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:marvel_catalog/core/app_exception.dart';
 import 'package:marvel_catalog/core/marvel_api/marvel_api.dart';
 import 'package:marvel_catalog/features/characters/domain/entities/character.dart';
 import 'package:marvel_catalog/features/characters/domain/usecases/fetch_characters_usecase.dart';
 import 'package:marvel_catalog/features/characters/domain/usecases/get_character_by_ids_list_usecase.dart';
-import 'package:marvel_catalog/features/characters/domain/usecases/get_character_by_id_usecase.dart';
-import 'package:marvel_catalog/features/characters/presentation/characters/header_heroes_cubit/header_heroes_state.dart';
+// ignore: depend_on_referenced_packages
 import 'package:collection/collection.dart';
 
 import 'all_characters_state.dart';

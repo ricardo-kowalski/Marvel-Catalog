@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import 'package:equatable/equatable.dart';
 
 import 'package:marvel_catalog/features/characters/data/models/character_model.dart';
@@ -12,19 +11,6 @@ class CharacterDataContainerModel extends Equatable {
   final List<CharacterModel>? results;
 
   const CharacterDataContainerModel({
-=======
-import 'package:marvel_catalog/features/characters/data/models/character_model.dart';
-import 'package:marvel_catalog/features/characters/domain/entities/character_data_container.dart';
-
-class CharacterDataContainerModel {
-  int? offset;
-  int? limit;
-  int? total;
-  int? count;
-  List<CharacterModel>? results;
-
-  CharacterDataContainerModel({
->>>>>>> parent of 036bdbe (Merge pull request #4 from ricardo-kowalski/revert-3-feature/03)
     this.offset,
     this.limit,
     this.total,
@@ -69,7 +55,6 @@ class CharacterDataContainerModel {
         count: count,
         results: results?.map((e) => e.toEntity()).toList(),
       );
-<<<<<<< HEAD
 
   @override
   List<Object?> get props {
@@ -81,6 +66,4 @@ class CharacterDataContainerModel {
       results,
     ];
   }
-=======
->>>>>>> parent of 036bdbe (Merge pull request #4 from ricardo-kowalski/revert-3-feature/03)
 }

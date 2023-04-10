@@ -1,7 +1,4 @@
-<<<<<<< HEAD
 import 'package:marvel_catalog/core/app_exception.dart';
-=======
->>>>>>> parent of 036bdbe (Merge pull request #4 from ricardo-kowalski/revert-3-feature/03)
 import 'package:marvel_catalog/features/characters/domain/entities/character.dart';
 import 'package:result_dart/result_dart.dart';
 
@@ -16,20 +13,6 @@ class CharactersRepositoryImplementation implements ICharactersRepository {
   CharactersRepositoryImplementation(
     this.datasource,
   );
-
-<<<<<<< HEAD
-  // @override
-  // Future<Result<CharacterDataWrapper, AppException>> fetch({
-  //   int? limit,
-  //   int? offset,
-  // }) async {
-  //   final result = await datasource.fetchCharacters(
-  //     limit: limit,
-  //     offset: offset,
-  //   );
-  //   return result.map((success) => success.toEntity());
-  // }
-
   @override
   Future<Result<CharacterDataWrapper, AppException>> fetch({
     int? limit,
@@ -57,17 +40,5 @@ class CharactersRepositoryImplementation implements ICharactersRepository {
     } on AppException catch (e) {
       return Failure(e);
     }
-=======
-  @override
-  Future<Result<CharacterDataWrapper, Exception>> fetch({
-    int? limit,
-    int? offset,
-  }) async {
-    final result = await datasource.fetchCharacters(
-      limit: limit,
-      offset: offset,
-    );
-    return result.map((success) => success.toEntity());
->>>>>>> parent of 036bdbe (Merge pull request #4 from ricardo-kowalski/revert-3-feature/03)
   }
 }

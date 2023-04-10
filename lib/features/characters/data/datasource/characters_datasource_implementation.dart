@@ -2,7 +2,6 @@ import 'dart:convert';
 import 'dart:io';
 
 import 'package:flutter/material.dart';
-<<<<<<< HEAD
 import 'package:http/http.dart' as http;
 import 'package:marvel_catalog/core/app_exception.dart';
 import 'package:marvel_catalog/features/characters/data/models/character_model.dart';
@@ -13,21 +12,11 @@ import 'package:marvel_catalog/features/characters/data/errors/no_connection_exc
 import 'package:marvel_catalog/features/characters/data/errors/server_exception.dart';
 
 import '../errors/character_not_found_exception.dart';
-=======
-import 'package:flutter/services.dart';
-import 'package:marvel_catalog/core/marvel_api/marvel_api.dart';
-import 'package:marvel_catalog/features/characters/data/errors/no_connection_exception.dart';
-import 'package:marvel_catalog/features/characters/data/errors/server_exception.dart';
-import 'package:result_dart/result_dart.dart';
-import 'package:http/http.dart' as http;
-
->>>>>>> parent of 036bdbe (Merge pull request #4 from ricardo-kowalski/revert-3-feature/03)
 import '../errors/unknown_exception.dart';
 import '../models/character_data_wrapper_model.dart';
 import 'characters_datasource.dart';
 
 class CharactersDatasourceImplementation implements ICharactersDatasource {
-<<<<<<< HEAD
   final http.Client client;
 
   CharactersDatasourceImplementation(
@@ -60,20 +49,11 @@ class CharactersDatasourceImplementation implements ICharactersDatasource {
   // }
   @override
   Future<CharacterDataWrapperModel> fetchCharacters({
-=======
-  @override
-  // final cliente = http.Client();
-  Future<Result<CharacterDataWrapperModel, Exception>> fetchCharacters({
->>>>>>> parent of 036bdbe (Merge pull request #4 from ricardo-kowalski/revert-3-feature/03)
     int? limit,
     int? offset,
   }) async {
     try {
-<<<<<<< HEAD
       final httpResponse = await client.get(MarvelApi.uriRequest(
-=======
-      final httpResponse = await http.get(MarvelApi.uriRequest(
->>>>>>> parent of 036bdbe (Merge pull request #4 from ricardo-kowalski/revert-3-feature/03)
         limit: limit,
         offset: offset,
       ));
@@ -81,7 +61,6 @@ class CharactersDatasourceImplementation implements ICharactersDatasource {
         case 200:
           final dataModel = CharacterDataWrapperModel.fromJson(
               json.decode(httpResponse.body));
-<<<<<<< HEAD
           return dataModel;
         default:
           debugPrint(httpResponse.reasonPhrase);
@@ -113,27 +92,16 @@ class CharactersDatasourceImplementation implements ICharactersDatasource {
         case 404:
           debugPrint(httpResponse.reasonPhrase);
           return const Failure(CharacterNotFoundException());
-=======
-          return Success(dataModel);
-        // case 409:
-        //   debugPrint(httpResponse.reasonPhrase);
-        //   return Failure(ServerException(httpResponse.body));
->>>>>>> parent of 036bdbe (Merge pull request #4 from ricardo-kowalski/revert-3-feature/03)
         default:
           debugPrint(httpResponse.reasonPhrase);
           return Failure(ServerException(httpResponse.body));
       }
     } on SocketException {
-<<<<<<< HEAD
       return const Failure(NoConnectionException());
-=======
-      return Failure(NoConnectionException());
->>>>>>> parent of 036bdbe (Merge pull request #4 from ricardo-kowalski/revert-3-feature/03)
     } catch (error) {
       return Failure(UnknownException(error.toString()));
     }
   }
-<<<<<<< HEAD
 
   @override
   Future<Result<List<CharacterModel>, AppException>> getByIdsList(
@@ -147,6 +115,4 @@ class CharactersDatasourceImplementation implements ICharactersDatasource {
     }
     return Success(models);
   }
-=======
->>>>>>> parent of 036bdbe (Merge pull request #4 from ricardo-kowalski/revert-3-feature/03)
 }
