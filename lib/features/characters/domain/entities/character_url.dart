@@ -1,6 +1,11 @@
-class CharacterUrl {
+import 'package:equatable/equatable.dart';
+
+class CharacterUrl extends Equatable {
   final String? type;
   final String? url;
 
-  CharacterUrl({this.type, this.url});
+  const CharacterUrl({this.type, this.url});
+
+  @override
+  List<Object?> get props => [type, url];
 }

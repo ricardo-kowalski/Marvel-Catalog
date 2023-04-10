@@ -1,3 +1,4 @@
+import 'package:marvel_catalog/core/app_exception.dart';
 import 'package:result_dart/result_dart.dart';
 
 import '../entities/character_data_wrapper.dart';
@@ -8,7 +9,7 @@ class FetchCharactersUsecase {
 
   FetchCharactersUsecase(this.repository);
 
-  Future<Result<CharacterDataWrapper, Exception>> get({
+  Future<Result<CharacterDataWrapper, AppException>> call({
     int? limit,
     int? offset,
   }) async {

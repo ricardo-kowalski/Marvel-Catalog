@@ -1,18 +1,20 @@
+import 'package:equatable/equatable.dart';
+
 import 'package:marvel_catalog/features/characters/data/models/image_model.dart';
 import 'package:marvel_catalog/features/characters/domain/entities/character.dart';
 
 import 'url_model.dart';
 
-class CharacterModel {
-  int? id;
-  String? name;
-  String? description;
-  // DateTime? modified;
-  CharacterImageModel? thumbnail;
-  List<CharacterUrlModel>? urls;
-  String? resourceUri;
+class CharacterModel extends Equatable {
+  final int? id;
+  final String? name;
+  final String? description;
+  //final  DateTime? modified;
+  final CharacterImageModel? thumbnail;
+  final List<CharacterUrlModel>? urls;
+  final String? resourceUri;
 
-  CharacterModel({
+  const CharacterModel({
     this.id,
     this.name,
     this.description,
@@ -79,4 +81,16 @@ class CharacterModel {
         'urls': urls,
         'resource_uri': resourceUri,
       };
+
+  @override
+  List<Object?> get props {
+    return [
+      id,
+      name,
+      description,
+      thumbnail,
+      urls,
+      resourceUri,
+    ];
+  }
 }

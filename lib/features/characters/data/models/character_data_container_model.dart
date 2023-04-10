@@ -1,14 +1,16 @@
+import 'package:equatable/equatable.dart';
+
 import 'package:marvel_catalog/features/characters/data/models/character_model.dart';
 import 'package:marvel_catalog/features/characters/domain/entities/character_data_container.dart';
 
-class CharacterDataContainerModel {
-  int? offset;
-  int? limit;
-  int? total;
-  int? count;
-  List<CharacterModel>? results;
+class CharacterDataContainerModel extends Equatable {
+  final int? offset;
+  final int? limit;
+  final int? total;
+  final int? count;
+  final List<CharacterModel>? results;
 
-  CharacterDataContainerModel({
+  const CharacterDataContainerModel({
     this.offset,
     this.limit,
     this.total,
@@ -53,4 +55,15 @@ class CharacterDataContainerModel {
         count: count,
         results: results?.map((e) => e.toEntity()).toList(),
       );
+
+  @override
+  List<Object?> get props {
+    return [
+      offset,
+      limit,
+      total,
+      count,
+      results,
+    ];
+  }
 }

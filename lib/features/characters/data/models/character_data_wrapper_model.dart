@@ -1,13 +1,16 @@
+import 'package:equatable/equatable.dart';
+
 import 'package:marvel_catalog/features/characters/data/models/character_data_container_model.dart';
 import 'package:marvel_catalog/features/characters/domain/entities/character_data_container.dart';
+
 import '../../domain/entities/character_data_wrapper.dart';
 
-class CharacterDataWrapperModel {
+class CharacterDataWrapperModel extends Equatable {
   final int? code;
   final String? status;
   final CharacterDataContainerModel? data;
 
-  CharacterDataWrapperModel({
+  const CharacterDataWrapperModel({
     this.code,
     this.status,
     this.data,
@@ -37,4 +40,7 @@ class CharacterDataWrapperModel {
         status: status,
         data: data != null ? data!.toEntity() : null,
       );
+
+  @override
+  List<Object?> get props => [code, status, data];
 }

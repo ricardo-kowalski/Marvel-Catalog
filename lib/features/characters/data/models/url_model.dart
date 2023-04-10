@@ -1,10 +1,12 @@
+import 'package:equatable/equatable.dart';
+
 import 'package:marvel_catalog/features/characters/domain/entities/character_url.dart';
 
-class CharacterUrlModel {
-  String? type;
-  String? url;
+class CharacterUrlModel extends Equatable {
+  final String? type;
+  final String? url;
 
-  CharacterUrlModel({
+  const CharacterUrlModel({
     this.type,
     this.url,
   });
@@ -26,4 +28,7 @@ class CharacterUrlModel {
         type: type,
         url: url,
       );
+
+  @override
+  List<Object?> get props => [type, url];
 }

@@ -1,10 +1,12 @@
+import 'package:equatable/equatable.dart';
+
 import 'package:marvel_catalog/features/characters/domain/entities/character_image.dart';
 
-class CharacterImageModel {
+class CharacterImageModel extends Equatable {
   final String? path;
   final String? extension;
 
-  CharacterImageModel({
+  const CharacterImageModel({
     this.path,
     this.extension,
   });
@@ -26,4 +28,7 @@ class CharacterImageModel {
         path: path,
         extension: extension,
       );
+
+  @override
+  List<Object?> get props => [path, extension];
 }

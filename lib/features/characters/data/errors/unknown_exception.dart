@@ -1,9 +1,12 @@
-import 'package:flutter/services.dart';
+import 'package:marvel_catalog/core/app_exception.dart';
 
-class UnknownException extends PlatformException {
-  UnknownException(String? message)
+class UnknownException extends AppException {
+  const UnknownException(String? message)
       : super(
           code: 'UNKNOWN',
           message: message,
         );
+
+  @override
+  List<Object?> get props => [];
 }
