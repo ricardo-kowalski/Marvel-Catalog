@@ -5,24 +5,10 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "prod: marvel_catalog",
+            "name": "marvel_catalog",
             "request": "launch",
             "type": "dart",
-            "args": [
-                "--dart-define=DEFINE_APP_NAME= Marvel List",
-                "--dart-define=DEFINE_ENVIRONMENT=prod",
-                // "--dart-define=DEFINE_API_URI=https://gateway.marvel.com:443/v1/public",
-            ]
-        },
-        {
-            "name": "dev: marvel_catalog",
-            "request": "launch",
-            "type": "dart",
-            "args": [
-                "--dart-define=DEFINE_APP_NAME=[DEV] Marvel List",
-                "--dart-define=DEFINE_ENVIRONMENT=dev",
-                // "--dart-define=DEFINE_API_URI=https://gateway.marvel.com:443/v1/public",
-            ]
+           
         },
     ]
 }

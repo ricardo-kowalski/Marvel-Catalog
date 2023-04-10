@@ -7,12 +7,10 @@ Plataformas: Android e iOS
 
 Algumas features mapeadas para futuras implementações e acompanhamento do desenvolvimento.
 
+
 - [x] Configurações de projeto e ambiente
-<<<<<<< HEAD
+
 - [x] Carrossel superior com 5 personagens
-=======
-- [ ] Carrossel superior com 5 personagens
->>>>>>> parent of 036bdbe (Merge pull request #4 from ricardo-kowalski/revert-3-feature/03)
 - [x] Uma lista vertical abaixo do carrossel com os personagens seguintes, sem repetir
 - [x] Scroll infinito
 - [ ] Detalhes dos personagens
