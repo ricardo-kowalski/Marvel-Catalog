@@ -1,7 +1,6 @@
 import 'package:equatable/equatable.dart';
 
-import 'package:marvel_catalog/features/characters/domain/entities/character_image.dart';
-import 'package:marvel_catalog/features/characters/domain/entities/character_url.dart';
+import 'entities.dart';
 
 class Character extends Equatable {
   final int? id;

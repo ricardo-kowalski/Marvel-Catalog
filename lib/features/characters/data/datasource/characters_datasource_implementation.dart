@@ -3,17 +3,11 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
-import 'package:marvel_catalog/core/app_exception.dart';
-import 'package:marvel_catalog/features/characters/data/models/character_model.dart';
+import 'package:marvel_catalog/core/core.dart';
 import 'package:result_dart/result_dart.dart';
 
-import 'package:marvel_catalog/core/marvel_api/marvel_api.dart';
-import 'package:marvel_catalog/features/characters/data/errors/no_connection_exception.dart';
-import 'package:marvel_catalog/features/characters/data/errors/server_exception.dart';
-
-import '../errors/character_not_found_exception.dart';
-import '../errors/unknown_exception.dart';
-import '../models/character_data_wrapper_model.dart';
+import '../errors/errors.dart';
+import '../models/models.dart';
 import 'characters_datasource.dart';
 
 class CharactersDatasourceImplementation implements ICharactersDatasource {

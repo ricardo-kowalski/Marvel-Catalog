@@ -23,11 +23,11 @@ class MarvelApi {
 
   static const popularHeroesIds = [
     '1009726', //X - Men
-    '1009718', '1017325', '1011006', // Wolverine
+    '1009718', // Wolverine
     '1009697', // Vision
     '1009535', // Red Skull
     '1009515', // Punisher:
-    '1009351', '1017098', // Hulk
+    '1009351', // Hulk
     '1009220', // Captain America
     '1010998', // The Initiative
     '1010669', // Titania

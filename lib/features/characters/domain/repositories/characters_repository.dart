@@ -1,4 +1,4 @@
-import 'package:marvel_catalog/core/app_exception.dart';
+import 'package:marvel_catalog/core/errors/app_exception.dart';
 import 'package:result_dart/result_dart.dart';
 
 import '../entities/character.dart';

@@ -1,8 +1,7 @@
-import 'package:marvel_catalog/core/app_exception.dart';
-import 'package:marvel_catalog/features/characters/domain/entities/character.dart';
+import 'package:marvel_catalog/core/core.dart';
 import 'package:result_dart/result_dart.dart';
 
-import '../repositories/characters_repository.dart';
+import '../domain.dart';
 
 class GetCharacterByIdsListUsecase {
   final ICharactersRepository repository;

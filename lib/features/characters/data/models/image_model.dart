@@ -1,6 +1,6 @@
 import 'package:equatable/equatable.dart';
 
-import 'package:marvel_catalog/features/characters/domain/entities/character_image.dart';
+import '../../domain/domain.dart';
 
 class CharacterImageModel extends Equatable {
   final String? path;

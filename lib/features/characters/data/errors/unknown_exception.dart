@@ -1,4 +1,4 @@
-import 'package:marvel_catalog/core/app_exception.dart';
+import 'package:marvel_catalog/core/core.dart';
 
 class UnknownException extends AppException {
   const UnknownException(String? message)
