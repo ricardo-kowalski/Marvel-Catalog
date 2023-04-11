@@ -1,25 +1,17 @@
-import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:marvel_catalog/core/app_exception.dart';
-import 'package:marvel_catalog/core/marvel_api/marvel_api.dart';
-import 'package:marvel_catalog/features/characters/domain/entities/character.dart';
-import 'package:marvel_catalog/features/characters/domain/usecases/fetch_characters_usecase.dart';
-import 'package:marvel_catalog/features/characters/domain/usecases/get_character_by_ids_list_usecase.dart';
-import 'package:marvel_catalog/features/characters/domain/usecases/get_character_by_id_usecase.dart';
-import 'package:marvel_catalog/features/characters/presentation/characters/header_heroes_cubit/header_heroes_state.dart';
+import 'package:marvel_catalog/core/core.dart';
+// ignore: depend_on_referenced_packages
 import 'package:collection/collection.dart';
 
+import '../../../domain/domain.dart';
 import 'all_characters_state.dart';
 
 class AllCharactersCubit extends Cubit<AllCharactersState> {
   final FetchCharactersUsecase fetchAllService;
-  // final GetCharacterByIdUsecase getByIdService;
   final GetCharacterByIdsListUsecase getByIdsListService;
 
   AllCharactersCubit(
     this.fetchAllService,
-    // this.getByIdService,
     this.getByIdsListService,
   ) : super(AllCharactersLoadingState()) {
     load(wantMoreLoading: false);
@@ -42,7 +34,6 @@ class AllCharactersCubit extends Cubit<AllCharactersState> {
   }
 
   Future<void> load({bool? wantMoreLoading = true}) async {
-    // emit(AllCharactersLoadingState());
     isLoadingMore = wantMoreLoading ?? true;
 
     final result = await fetchAllService(
@@ -77,42 +68,13 @@ class AllCharactersCubit extends Cubit<AllCharactersState> {
     );
   }
 
-  // Future<void> loadHeroes() async {
-  //   isLoadingHeroes = true;
-
-  //   for (var id in heroesIds) {
-  //     var result = await getByIdService(id);
-  //     result.fold(
-  //       (success) {
-  //         Character? hero = success.data?.results?.first;
-  //         if (hero != null) heroes.add(hero);
-  //         emit(
-  //           AllCharactersLoadedState(s
-  //             sampleCharacters: heroes,
-  //             fetchedRecords: allCharacters(),
-  //             recordCount: recordCount(),sadsadfasdf
-  //           ),
-  //         );
-  //         isLoadingHeroes = false;
-  //       },
-  //       (failure) {
-  //         emit(
-  //           AllCharactersFailedState(failure),
-  //         );
-  //         return;
-  //       },
-  //     );
-  //   }
-  // }
   Future<void> loadHeroes() async {
     isLoadingHeroes = true;
 
     var result = await getByIdsListService(heroesIds);
     result.fold(
       (success) {
-        // final List<Character> fetchedHeros = success;
         heroes.addAll(success);
-        // print(heroes);
         emit(
           AllCharactersLoadedState(
             sampleCharacters: success,

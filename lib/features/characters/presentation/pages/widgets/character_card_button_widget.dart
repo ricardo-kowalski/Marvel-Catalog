@@ -1,62 +1,57 @@
 import 'package:flutter/material.dart';
-import 'package:marvel_catalog/features/characters/presentation/characters/widgets/skeleton.dart';
+import 'package:marvel_catalog/features/characters/characters.dart';
 
 class CharacterCardButton extends StatelessWidget {
-  // final Widget image;
-  final String imageUrl;
-  final VoidCallback onPressed;
-  final String title;
-  final Object heroTag;
-  final EdgeInsets? margin;
-  final Widget? trailing;
+  final Character character;
+  final VoidCallback? onPressed;
 
   const CharacterCardButton({
     Key? key,
-    // required this.image,
-    required this.imageUrl,
-    required this.onPressed,
-    required this.title,
-    this.margin = EdgeInsets.zero,
-    this.trailing,
-    this.heroTag = '',
+    this.onPressed,
+    required this.character,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Card(
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.all(
+          Radius.circular(10.0),
+        ),
+      ),
       color: Colors.red,
       clipBehavior: Clip.antiAlias,
+      margin: const EdgeInsets.only(
+        left: 12.0,
+        top: 8,
+        bottom: 8,
+      ),
       child: Stack(
         children: [
           Positioned.fill(
             child: Hero(
-              tag: heroTag,
-              child: Image.network(
-                imageUrl,
-                fit: BoxFit.cover,
-                errorBuilder: (context, error, stackTrace) => Container(
-                  color: Colors.red,
+              tag: '${character.id}_image_tag',
+              child: Material(
+                type: MaterialType.transparency,
+                child: Image.network(
+                  character.thumbnail!.full,
+                  fit: BoxFit.cover,
+                  errorBuilder: (context, error, stackTrace) => Container(
+                    color: Colors.red,
+                  ),
+                  loadingBuilder: (context, image, loadingProgress) {
+                    if (loadingProgress == null) return image;
+                    return Center(
+                      child: CircularProgressIndicator(
+                        value: loadingProgress.expectedTotalBytes != null
+                            ? loadingProgress.cumulativeBytesLoaded /
+                                loadingProgress.expectedTotalBytes!
+                            : null,
+                        color: Colors.white,
+                      ),
+                    );
+                  },
                 ),
-                loadingBuilder: (context, image, loadingProgress) {
-                  if (loadingProgress == null) return image;
-                  return Center(
-                    child: CircularProgressIndicator(
-                      value: loadingProgress.expectedTotalBytes != null
-                          ? loadingProgress.cumulativeBytesLoaded /
-                              loadingProgress.expectedTotalBytes!
-                          : null,
-                      color: Colors.white,
-                    ),
-                  );
-                  // return Skeleton.card(
-                  //   baseColor: Colors.grey,
-                  //   width: 150,
-                  // );
-                  // return Image.asset(
-                  //   'assets/images/marvel.png',
-                  //   fit: BoxFit.cover,
-                  // );
-                },
               ),
             ),
           ),
@@ -79,7 +74,7 @@ class CharacterCardButton extends StatelessWidget {
                       children: [
                         Expanded(
                           child: Text(
-                            title,
+                            character.name ?? 'Unknown',
                             maxLines: 1,
                             overflow: TextOverflow.ellipsis,
                             style: Theme.of(context)
@@ -88,7 +83,6 @@ class CharacterCardButton extends StatelessWidget {
                                 ?.copyWith(color: Colors.white),
                           ),
                         ),
-                        if (trailing != null) trailing!,
                       ],
                     ),
                   ),

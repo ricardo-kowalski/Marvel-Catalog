@@ -1,5 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:marvel_catalog/core/app_exception.dart';
+import 'package:marvel_catalog/core/errors/app_exception.dart';
 import 'package:marvel_catalog/features/characters/data/datasource/characters_datasource.dart';
 import 'package:marvel_catalog/features/characters/data/errors/no_connection_exception.dart';
 import 'package:marvel_catalog/features/characters/data/errors/server_exception.dart';
@@ -25,7 +25,6 @@ void main() {
   test('should return a CharacterDataWrapper when calls the datasource',
       () async {
     when(() => datasource.fetchCharacters())
-        // .thenAnswer((_) async => Result.success(tCharacterDataWrapperModel));
         .thenAnswer((_) async => tCharacterDataWrapperModel);
 
     final result = await repository.fetch();
@@ -40,7 +39,6 @@ void main() {
   test('should return a NoConnectionException when calls the datasource',
       () async {
     when(() => datasource.fetchCharacters())
-        // .thenAnswer((_) async => Result.failure(const NoConnectionException()));
         .thenAnswer((_) async => throw const NoConnectionException());
 
     final result = await repository.fetch();
@@ -55,9 +53,8 @@ void main() {
 
   const tErrorMessage = 'Erro de servidor';
   test('should return a ServerException when calls the datasource', () async {
-    when(() => datasource.fetchCharacters()).thenAnswer(
-        // (_) async => Result.failure(const ServerException(tErrorMessage)));
-        (_) async => throw const ServerException(tErrorMessage));
+    when(() => datasource.fetchCharacters())
+        .thenAnswer((_) async => throw const ServerException(tErrorMessage));
 
     final result = await repository.fetch();
 
@@ -69,9 +66,8 @@ void main() {
     verify(() => datasource.fetchCharacters()).called(1);
   });
   test('should return a UnknownException when calls the datasource', () async {
-    when(() => datasource.fetchCharacters()).thenAnswer(
-        // (_) async => Result.failure(const UnknownException(tErrorMessage)));
-        (_) async => throw const UnknownException(tErrorMessage));
+    when(() => datasource.fetchCharacters())
+        .thenAnswer((_) async => throw const UnknownException(tErrorMessage));
 
     final result = await repository.fetch();
 

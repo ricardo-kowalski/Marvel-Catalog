@@ -1,4 +1,4 @@
-import 'package:marvel_catalog/core/app_exception.dart';
+import 'package:marvel_catalog/core/core.dart';
 
 class ServerException extends AppException {
   const ServerException(String? message)

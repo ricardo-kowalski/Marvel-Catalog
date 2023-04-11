@@ -1,9 +1,7 @@
 import 'package:equatable/equatable.dart';
 
-import 'package:marvel_catalog/features/characters/data/models/image_model.dart';
-import 'package:marvel_catalog/features/characters/domain/entities/character.dart';
-
-import 'url_model.dart';
+import '../../domain/domain.dart';
+import 'models.dart';
 
 class CharacterModel extends Equatable {
   final int? id;

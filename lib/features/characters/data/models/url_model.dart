@@ -1,6 +1,6 @@
 import 'package:equatable/equatable.dart';
 
-import 'package:marvel_catalog/features/characters/domain/entities/character_url.dart';
+import '../../domain/domain.dart';
 
 class CharacterUrlModel extends Equatable {
   final String? type;

@@ -1,7 +1,7 @@
 import 'package:equatable/equatable.dart';
+import 'package:marvel_catalog/features/characters/domain/entities/entities.dart';
 
-import 'package:marvel_catalog/features/characters/data/models/character_model.dart';
-import 'package:marvel_catalog/features/characters/domain/entities/character_data_container.dart';
+import 'models.dart';
 
 class CharacterDataContainerModel extends Equatable {
   final int? offset;
